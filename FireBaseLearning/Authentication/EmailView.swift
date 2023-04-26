@@ -23,7 +23,7 @@ struct EmailView: View {
                 .cornerRadius(10)
                 .padding(.bottom)
             Button {
-                
+                viewModel.signIn()
             } label: {
                 Text("SignIn")
                     .font(.headline)

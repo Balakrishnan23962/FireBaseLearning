@@ -6,10 +6,38 @@
 //
 
 import Foundation
+import Combine
 
-
+@MainActor
 final class SingInViewModel : ObservableObject {
     
     @Published var email : String = ""
     @Published var password : String = ""
+    
+    private let authManager : AuthManagerProtocol
+    
+    init(authManager : AuthManagerProtocol = AuthManager.shared) {
+        self.authManager = authManager
+    }
+}
+
+extension SingInViewModel {
+    
+    func signIn() {
+        guard !email.isEmpty, !password.isEmpty else {
+            print("No Email or Password Found")
+            return
+        }
+        
+        Task{
+            do {
+                let results = try await authManager.createUser(email: email, password: password)
+                print("\(results)")
+            }
+            catch {
+                print("Error : \(error)")
+            }
+        }
+    }
+    
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15AD7D6D29F674CD00B4C511 /* FireBaseLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AD7D6C29F674CD00B4C511 /* FireBaseLearningApp.swift */; };
-		15AD7D6F29F674CD00B4C511 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AD7D6E29F674CD00B4C511 /* ContentView.swift */; };
 		15AD7D7129F674CE00B4C511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15AD7D7029F674CE00B4C511 /* Assets.xcassets */; };
 		15AD7D7429F674CE00B4C511 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15AD7D7329F674CE00B4C511 /* Preview Assets.xcassets */; };
 		15F39D0F29F8EA5C00B0486B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15F39D0E29F8EA5C00B0486B /* GoogleService-Info.plist */; };
@@ -21,12 +20,14 @@
 		15F39D1F29F8FA5700B0486B /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F39D1E29F8FA5700B0486B /* EmailView.swift */; };
 		15F39D2229F8FA8B00B0486B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F39D2129F8FA8B00B0486B /* SignInViewModel.swift */; };
 		15F39D2529F8FAA000B0486B /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F39D2429F8FAA000B0486B /* SignInModel.swift */; };
+		15F39D2829F8FFAB00B0486B /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F39D2729F8FFAB00B0486B /* AuthManager.swift */; };
+		15F39D2A29F9081B00B0486B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F39D2929F9081B00B0486B /* RootView.swift */; };
+		15F39D2C29F9087C00B0486B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F39D2B29F9087C00B0486B /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15AD7D6929F674CD00B4C511 /* FireBaseLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireBaseLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15AD7D6C29F674CD00B4C511 /* FireBaseLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseLearningApp.swift; sourceTree = "<group>"; };
-		15AD7D6E29F674CD00B4C511 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15AD7D7029F674CE00B4C511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15AD7D7329F674CE00B4C511 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15F39D0E29F8EA5C00B0486B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -35,6 +36,9 @@
 		15F39D1E29F8FA5700B0486B /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		15F39D2129F8FA8B00B0486B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		15F39D2429F8FAA000B0486B /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		15F39D2729F8FFAB00B0486B /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		15F39D2929F9081B00B0486B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		15F39D2B29F9087C00B0486B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +77,7 @@
 			children = (
 				15F39D1929F8EBC100B0486B /* AppDelegate.swift */,
 				15AD7D6C29F674CD00B4C511 /* FireBaseLearningApp.swift */,
-				15AD7D6E29F674CD00B4C511 /* ContentView.swift */,
+				15F39D2629F8FF9900B0486B /* AuthManager */,
 				15F39D2329F8FA8F00B0486B /* Model */,
 				15F39D2029F8FA7600B0486B /* ViewModels */,
 				15F39D1B29F8F93200B0486B /* Authentication */,
@@ -97,6 +101,7 @@
 			children = (
 				15F39D1C29F8F94A00B0486B /* SignInView.swift */,
 				15F39D1E29F8FA5700B0486B /* EmailView.swift */,
+				15F39D2929F9081B00B0486B /* RootView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				15F39D2129F8FA8B00B0486B /* SignInViewModel.swift */,
+				15F39D2B29F9087C00B0486B /* SignUpViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -115,6 +121,14 @@
 				15F39D2429F8FAA000B0486B /* SignInModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		15F39D2629F8FF9900B0486B /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				15F39D2729F8FFAB00B0486B /* AuthManager.swift */,
+			);
+			path = AuthManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,9 +211,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15AD7D6F29F674CD00B4C511 /* ContentView.swift in Sources */,
+				15F39D2A29F9081B00B0486B /* RootView.swift in Sources */,
+				15F39D2829F8FFAB00B0486B /* AuthManager.swift in Sources */,
 				15F39D1A29F8EBC100B0486B /* AppDelegate.swift in Sources */,
 				15F39D2229F8FA8B00B0486B /* SignInViewModel.swift in Sources */,
+				15F39D2C29F9087C00B0486B /* SignUpViewModel.swift in Sources */,
 				15F39D2529F8FAA000B0486B /* SignInModel.swift in Sources */,
 				15F39D1D29F8F94A00B0486B /* SignInView.swift in Sources */,
 				15AD7D6D29F674CD00B4C511 /* FireBaseLearningApp.swift in Sources */,
