@@ -14,11 +14,13 @@ protocol AuthManagerProtocol {
     func createUser(email: String, password: String) async throws -> AuthDataResultsModel
     func getAuthenticatedUser() throws -> AuthDataResultsModel
     
+    func signOut() throws
+    
 }
 
 
 final class AuthManager: AuthManagerProtocol {
-    
+   
     static let shared : AuthManagerProtocol = AuthManager()
     private init() { }
     
@@ -34,6 +36,10 @@ final class AuthManager: AuthManagerProtocol {
         }
         
         return AuthDataResultsModel(user: user)
+    }
+    
+    func signOut() throws {
+       try Auth.auth().signOut()
     }
     
 }

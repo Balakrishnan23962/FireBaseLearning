@@ -11,6 +11,8 @@ struct EmailView: View {
     
     @StateObject var viewModel = SignInViewModel()
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack{
             TextField("Email....", text: $viewModel.email)
@@ -24,6 +26,7 @@ struct EmailView: View {
                 .padding(.bottom)
             Button {
                 viewModel.signIn()
+                dismiss()
             } label: {
                 Text("SignIn")
                     .font(.headline)
