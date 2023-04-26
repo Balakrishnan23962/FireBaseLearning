@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-final class SingInViewModel : ObservableObject {
+final class SignInViewModel : ObservableObject {
     
     @Published var email : String = ""
     @Published var password : String = ""
@@ -21,7 +21,7 @@ final class SingInViewModel : ObservableObject {
     }
 }
 
-extension SingInViewModel {
+extension SignInViewModel {
     
     func signIn() {
         guard !email.isEmpty, !password.isEmpty else {

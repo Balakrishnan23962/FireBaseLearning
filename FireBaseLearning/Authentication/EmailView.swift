@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmailView: View {
     
-    @StateObject var viewModel = SingInViewModel()
+    @StateObject var viewModel = SignInViewModel()
     
     var body: some View {
         VStack{
