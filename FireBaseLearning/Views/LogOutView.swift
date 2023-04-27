@@ -12,15 +12,47 @@ struct LogOutView: View {
     @StateObject var viewModel = LogOutViewModel()
     @Binding var showSignIn : Bool
     var body: some View {
-        List {
-            Button {
-                viewModel.logout()
-                showSignIn = true
-            } label: {
-                Text("Logout")
-                    .foregroundColor(.red)
+        Form {
+            Section {
+                Button {
+                    viewModel.logout()
+                    showSignIn = true
+                } label: {
+                    Text("Logout")
+                        .foregroundColor(.red)
             }
+            }
+            Section {
+                Button {
+                    Task{
+                        do{
+                            try await viewModel.resetPassword()
+                            print("Password Reset successful")
+                        }
+                        catch{
+                            print("Error in reset password, \(error)")
+                        }
+                    }
+                } label: {
+                    Text("Reset Password")
+            }
+            }
+            Section {
+                Button {
+                    Task{
+                        do {
+                            try await viewModel.updateEmail()
 
+                        }
+                        catch{
+                            print("Error in update Email")
+                        }
+                    }
+                } label: {
+                    Text("Update Email")
+                }
+
+            }
         }
         .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)

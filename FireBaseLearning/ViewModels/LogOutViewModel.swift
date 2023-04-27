@@ -28,4 +28,26 @@ final class LogOutViewModel : ObservableObject {
         }
     }
     
+    func resetPassword() async throws {
+        
+        let results = try authManager.getAuthenticatedUser()
+        guard let email = results.email else {
+            throw FirebaseError.emailNotFound
+        }
+        
+        try await authManager.resetPassword(email: email)
+        
+    }
+    
+    func updateEmail() async throws {
+        let email = "123@gmail.com"
+        try await authManager.updateEmail(email: email)
+        
+    }
+    
+    func updatePassword() async throws {
+        let password = "123bfgfff"
+        try await authManager.updatePassword(password: password)
+    }
+    
 }

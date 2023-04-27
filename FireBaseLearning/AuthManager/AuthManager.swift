@@ -14,9 +14,10 @@ protocol AuthManagerProtocol {
     func createUser(email: String, password: String) async throws -> AuthDataResultsModel
     func getAuthenticatedUser() throws -> AuthDataResultsModel
     func signInUser(email: String, password : String) async throws -> AuthDataResultsModel
-    
+    func resetPassword(email : String) async throws
     func signOut() throws
-    
+    func updateEmail(email: String) async throws
+    func updatePassword(password: String) async throws
 }
 
 
@@ -33,7 +34,7 @@ final class AuthManager: AuthManagerProtocol {
     
     func getAuthenticatedUser() throws -> AuthDataResultsModel {
         guard let user = Auth.auth().currentUser else {
-            throw URLError(.badServerResponse)
+            throw FirebaseError.newUser
         }
         
         return AuthDataResultsModel(user: user)
@@ -46,6 +47,23 @@ final class AuthManager: AuthManagerProtocol {
     
     func signOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
+    func updatePassword(password: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw FirebaseError.newUser
+        }
+        try await user.updatePassword(to: password)
+    }
+    func updateEmail(email: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw FirebaseError.newUser
+        }
+        try await user.updateEmail(to: email)
     }
     
 }
