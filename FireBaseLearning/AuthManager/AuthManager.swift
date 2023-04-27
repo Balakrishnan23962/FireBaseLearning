@@ -13,6 +13,7 @@ protocol AuthManagerProtocol {
     
     func createUser(email: String, password: String) async throws -> AuthDataResultsModel
     func getAuthenticatedUser() throws -> AuthDataResultsModel
+    func signInUser(email: String, password : String) async throws -> AuthDataResultsModel
     
     func signOut() throws
     
@@ -38,8 +39,13 @@ final class AuthManager: AuthManagerProtocol {
         return AuthDataResultsModel(user: user)
     }
     
+    func signInUser(email: String, password : String) async throws -> AuthDataResultsModel {
+        let authDataResults = try await Auth.auth().signIn(withEmail: email, password: password)
+        return AuthDataResultsModel(user: authDataResults.user)
+    }
+    
     func signOut() throws {
-       try Auth.auth().signOut()
+        try Auth.auth().signOut()
     }
     
 }

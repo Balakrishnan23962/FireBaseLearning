@@ -1,18 +1,15 @@
 //
-//  EmailView.swift
+//  SignInView.swift
 //  FireBaseLearning
 //
-//  Created by Gasc_Internship1 on 26/04/23.
+//  Created by Gasc_Internship1 on 27/04/23.
 //
 
 import SwiftUI
 
-struct EmailView: View {
-    
+struct SignInView: View {
     @StateObject var viewModel = SignInViewModel()
-    
-    @Environment(\.dismiss) var dismiss
-    
+    @Binding var isSignIn : Bool
     var body: some View {
         VStack{
             TextField("Email....", text: $viewModel.email)
@@ -26,7 +23,7 @@ struct EmailView: View {
                 .padding(.bottom)
             Button {
                 viewModel.signIn()
-                dismiss()
+                isSignIn = false
             } label: {
                 Text("SignIn")
                     .font(.headline)
@@ -36,18 +33,28 @@ struct EmailView: View {
                     .background(.blue)
                     .cornerRadius(10)
             }
+            .padding(.bottom)
+            HStack{
+                Text("Don't have an account?")
+                NavigationLink {
+                    EmailView(isSignIn: $isSignIn)
+                } label: {
+                    Text("SignUp")
+                }
+
+            }
             Spacer()
+            .navigationTitle("SignIn")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .padding()
-        .navigationTitle("SignIn With Email")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct EmailView_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            EmailView()
+            SignInView(isSignIn: .constant(false))
         }
     }
 }

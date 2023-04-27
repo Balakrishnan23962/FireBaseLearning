@@ -13,6 +13,7 @@ final class SignInViewModel : ObservableObject {
     
     @Published var email : String = ""
     @Published var password : String = ""
+    @Published var isSignIn : Bool = false
     
     private let authManager : AuthManagerProtocol
     
@@ -23,21 +24,26 @@ final class SignInViewModel : ObservableObject {
 
 extension SignInViewModel {
     
+    
     func signIn() {
+        
+        isSignIn = true
+        
         guard !email.isEmpty, !password.isEmpty else {
             print("No Email or Password Found")
             return
         }
         
         Task{
-            do {
-                let results = try await authManager.createUser(email: email, password: password)
+            do{
+                let results = try await authManager.signInUser(email: email, password: password)
                 print("\(results)")
             }
-            catch {
+            catch{
                 print("Error : \(error)")
             }
         }
+        
     }
     
 }

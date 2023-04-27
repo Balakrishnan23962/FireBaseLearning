@@ -22,7 +22,7 @@ struct LogOutView: View {
             }
 
         }
-        .navigationTitle("Logout")
+        .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

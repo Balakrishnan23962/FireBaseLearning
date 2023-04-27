@@ -10,27 +10,20 @@ import SwiftUI
 struct RootView: View {
     
     @StateObject var viewModel = SignUpViewModel()
-    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         
         ZStack{
             NavigationStack {
-                TabView {
-                    LogOutView(showSignIn: $viewModel.showSignInView)
-                        .tabItem {
-                            Image(systemName: "house.fill")
-                        }
-                }
+                LogOutView(showSignIn: $viewModel.showSignInView)
             }
         }
         .onAppear{
             viewModel.getRegisteredUser()
         }
-        .fullScreenCover(isPresented: $viewModel.showSignInView,onDismiss: {
-            dismiss()
-        }) {
+        .fullScreenCover(isPresented: $viewModel.showSignInView) {
             NavigationStack{
-                SignInView()
+                SignUpView(showSignIn: $viewModel.showSignInView)
             }
         }
     }
