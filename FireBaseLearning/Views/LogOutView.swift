@@ -53,6 +53,22 @@ struct LogOutView: View {
                 }
 
             }
+            Section {
+                Button {
+                    Task{
+                        do {
+                            try await viewModel.updatePassword()
+                        }
+                        catch{
+                            print("Error in update Password")
+                        }
+                    }
+                } label: {
+                    Text("Update Password")
+                }
+
+            }
+
         }
         .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
