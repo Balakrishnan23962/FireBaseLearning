@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct SignUpView: View {
-    @StateObject var viewModel = SignUpViewModel()
+    @StateObject var viewModel = GoogleSignInViewModel()
     @Binding var showSignIn : Bool
     var body: some View {
         NavigationStack {
@@ -34,6 +36,9 @@ struct SignUpView: View {
                         Text("SignIn")
                             
                     }
+                }
+                GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark,style: .icon,state: .pressed)) {
+                    
                 }
                 
                 Spacer()
