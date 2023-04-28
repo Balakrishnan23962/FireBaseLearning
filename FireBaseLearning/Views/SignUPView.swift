@@ -38,7 +38,14 @@ struct SignUpView: View {
                     }
                 }
                 GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark,style: .icon,state: .pressed)) {
-                    
+                    Task {
+                        do {
+                            try await viewModel.signInGoogle()
+                            showSignIn = false
+                        } catch {
+                            print("Error in google Signin")
+                        }
+                    }
                 }
                 
                 Spacer()

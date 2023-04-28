@@ -18,6 +18,9 @@ protocol AuthManagerProtocol {
     func signOut() throws
     func updateEmail(email: String) async throws
     func updatePassword(password: String) async throws
+    @discardableResult
+    func signInGoogle(tokens: GIDSignInUSerModel) async throws -> AuthDataResultsModel
+    func signIn(credential: AuthCredential) async throws -> AuthDataResultsModel
 }
 
 
@@ -64,6 +67,20 @@ final class AuthManager: AuthManagerProtocol {
             throw FirebaseError.newUser
         }
         try await user.updateEmail(to: email)
+    }
+    
+}
+
+extension AuthManager {
+    
+    func signIn(credential: AuthCredential) async throws -> AuthDataResultsModel {
+        let authData = try await Auth.auth().signIn(with: credential)
+        return AuthDataResultsModel(user: authData.user)
+    }
+    
+    func signInGoogle(tokens: GIDSignInUSerModel) async throws -> AuthDataResultsModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken , accessToken: tokens.accessToken)
+        return try await signIn(credential: credential)
     }
     
 }

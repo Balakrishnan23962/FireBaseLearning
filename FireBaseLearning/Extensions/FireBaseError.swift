@@ -31,3 +31,23 @@ extension FirebaseError {
         }
     }
 }
+
+enum TopViewControllerError : LocalizedError {
+    case noTopViewController
+    case noAccessToken
+    case noIdToken
+}
+
+
+extension TopViewControllerError {
+    public var errorDescription: String? {
+        switch self {
+        case .noTopViewController:
+            return NSLocalizedString("No UIViewController here", comment: "Provide UIViewController")
+        case .noAccessToken:
+            return NSLocalizedString("You have no Access Token", comment: "Provide an access Token")
+        case .noIdToken:
+            return NSLocalizedString("You have no IdToken Token", comment: "Provide an IdToken  Token")
+        }
+    }
+}
