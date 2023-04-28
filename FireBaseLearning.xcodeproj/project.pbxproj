@@ -12,6 +12,7 @@
 		15AD7D7429F674CE00B4C511 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15AD7D7329F674CE00B4C511 /* Preview Assets.xcassets */; };
 		15C7AB0D29FB83BC00A10AFF /* GoogleUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C7AB0C29FB83BC00A10AFF /* GoogleUtilities.swift */; };
 		15C7AB0F29FB866500A10AFF /* GIDSignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C7AB0E29FB866500A10AFF /* GIDSignInResult.swift */; };
+		15C7AB1229FB90EF00A10AFF /* GoolgeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C7AB1129FB90EF00A10AFF /* GoolgeHelpers.swift */; };
 		15CE613829FA3CBD00D5034C /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE613729FA3CBD00D5034C /* SignInView.swift */; };
 		15CE613B29FA569700D5034C /* FireBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CE613A29FA569700D5034C /* FireBaseError.swift */; };
 		15CE613E29FA74C000D5034C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 15CE613D29FA74C000D5034C /* GoogleSignIn */; };
@@ -41,6 +42,7 @@
 		15AD7D7329F674CE00B4C511 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15C7AB0C29FB83BC00A10AFF /* GoogleUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUtilities.swift; sourceTree = "<group>"; };
 		15C7AB0E29FB866500A10AFF /* GIDSignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIDSignInResult.swift; sourceTree = "<group>"; };
+		15C7AB1129FB90EF00A10AFF /* GoolgeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoolgeHelpers.swift; sourceTree = "<group>"; };
 		15CE613729FA3CBD00D5034C /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		15CE613A29FA569700D5034C /* FireBaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseError.swift; sourceTree = "<group>"; };
 		15CE614129FA75E100D5034C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				15CE614129FA75E100D5034C /* Info.plist */,
 				15F39D1929F8EBC100B0486B /* AppDelegate.swift */,
 				15AD7D6C29F674CD00B4C511 /* FireBaseLearningApp.swift */,
+				15C7AB1029FB90DC00A10AFF /* Helpers */,
 				15C7AB0B29FB776F00A10AFF /* Utitlities */,
 				15CE613929FA567F00D5034C /* Extensions */,
 				15F39D2629F8FF9900B0486B /* AuthManager */,
@@ -124,6 +127,14 @@
 				15C7AB0C29FB83BC00A10AFF /* GoogleUtilities.swift */,
 			);
 			path = Utitlities;
+			sourceTree = "<group>";
+		};
+		15C7AB1029FB90DC00A10AFF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				15C7AB1129FB90EF00A10AFF /* GoolgeHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		15CE613929FA567F00D5034C /* Extensions */ = {
@@ -257,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C7AB1229FB90EF00A10AFF /* GoolgeHelpers.swift in Sources */,
 				15F39D2A29F9081B00B0486B /* RootView.swift in Sources */,
 				15F39D2829F8FFAB00B0486B /* AuthManager.swift in Sources */,
 				15F39D2E29F90FEF00B0486B /* LogOutView.swift in Sources */,
